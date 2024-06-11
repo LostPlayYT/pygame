@@ -24,21 +24,22 @@ while lets_continue:
 
     key = pygame.key.get_pressed()
 
-    if key[pygame.K_a] == True:
+    if (key[pygame.K_a] or key [pygame.K_LEFT]) and player.left > 0:
         player.move_ip(-1,0)
 
-    elif key[pygame.K_w] == True:
-        player.move_ip(0,-1)
-
-    elif key[pygame.K_d] == True:
+    if (key[pygame.K_d] or key [pygame.K_RIGHT]) and player.right < width:
         player.move_ip(1,0)
 
-    elif key[pygame.K_s] == True:
+    if (key[pygame.K_w] or key [pygame.K_UP]) and player.top > 0:
+        player.move_ip(0,-1)
+
+    if (key[pygame.K_s] or key [pygame.K_DOWN]) and player.bottom < height:
         player.move_ip(0,1)
-
+    
     elif key[pygame.K_r] == True:
-        player.move_ip(0, 0)
-
+        player = pygame.Rect((300, 250, 50, 50))
+ 
+    
     for event in pygame.event.get() :
         print(event)
         
